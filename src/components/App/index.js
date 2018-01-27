@@ -14,7 +14,17 @@ class App extends Component {
           <h2>Block Explorer</h2>
         </div>
         <div className="App-nav">
-          {/* Place holder */}
+          <Router>
+            <div>
+              <Link to="/">Home</Link>
+              <Link to="/block">Block</Link>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/block" render={() => (
+                <h3>Please select a blockHash.</h3>
+              )}/>
+              <Route path="/block/:blockHash" component={Block}/>
+            </div>
+          </Router>
         </div>
       </div>
     );
