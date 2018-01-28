@@ -13,13 +13,22 @@ class Home extends Component {
         }
     }
 
+    componentWillMount() {
+      console.log(web3.eth.accounts);
+      var curr_block_no = web3.eth.blockNumber;
+      console.log(curr_block_no);
+      this.setState({
+        curr_block: curr_block_no
+      });
+    }
+
     render() {
-        console.log('test',web3.eth.accounts);
-        return (
-            <div className="Home">
-                <h2>Home page</h2>
-            </div>
-        );
+      return (
+        <div className="Home">
+          <h2>Home page</h2>
+            Current Block: {this.state.curr_block}
+        </div>
+      );
     }
 }
 
