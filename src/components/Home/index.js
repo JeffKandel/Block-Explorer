@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
 import Web3 from 'web3'
+import _ from 'lodash';
+import { Link } from 'react-router-dom'
+
 let web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'))
 
 class Home extends Component {
