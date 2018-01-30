@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
 import Web3 from 'web3'
-let web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545'));
 
 class Home extends Component {
     constructor(props) {
@@ -14,6 +13,8 @@ class Home extends Component {
     }
 
     componentWillMount() {
+      let web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'))
+
       console.log(web3.eth.accounts);
       var curr_block_no = web3.eth.blockNumber;
       console.log(curr_block_no);
