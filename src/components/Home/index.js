@@ -24,31 +24,31 @@ class Home extends Component {
     }
 
     componentWillMount() {
-      console.log(web3.eth.accounts);
-      var curr_block_no = web3.eth.blockNumber;
-      console.log(curr_block_no);
-      this.setState({
-        curr_block: curr_block_no
-      });
+      console.log('test,',web3.eth.accounts);
+      // var curr_block_no = web3.eth.blockNumber;
+      // console.log(curr_block_no);
+      // this.setState({
+      //   curr_block: curr_block_no
+      // });
 
-      this.getBlocks(curr_block_no);
+      // this.getBlocks(curr_block_no);
     }
 
-    getBlocks(curr_block_no) {
-      const block_ids = this.state.block_ids.slice();
-      const block_hashes = this.state.block_hashes.slice();
-      var max_blocks = 10;
-      if (curr_block_no < max_blocks) max_blocks = curr_block_no;
-      for (var i = 0; i < max_blocks; i++, curr_block_no--) {
-        var currBlockObj = web3.eth.getBlock(curr_block_no);
-        block_ids.push(currBlockObj.number);
-        block_hashes.push(currBlockObj.hash);
-      }
-      this.setState({
-        block_ids: block_ids,
-        block_hashes: block_hashes
-      })
-    }
+    // getBlocks(curr_block_no) {
+    //   const block_ids = this.state.block_ids.slice();
+    //   const block_hashes = this.state.block_hashes.slice();
+    //   var max_blocks = 10;
+    //   if (curr_block_no < max_blocks) max_blocks = curr_block_no;
+    //   for (var i = 0; i < max_blocks; i++, curr_block_no--) {
+    //     var currBlockObj = web3.eth.getBlock(curr_block_no);
+    //     block_ids.push(currBlockObj.number);
+    //     block_hashes.push(currBlockObj.hash);
+    //   }
+    //   this.setState({
+    //     block_ids: block_ids,
+    //     block_hashes: block_hashes
+    //   })
+    // }
 
     render() {
       return (
